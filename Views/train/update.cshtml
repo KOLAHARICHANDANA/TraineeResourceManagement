@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "update";
+    Layout = "";
+
+}
+
+
+
+<style type="text/css">
+    .l {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        background-color: white;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="l">
+    
+    <a class="btn btn-info" href="/train/onhold?id=@ViewBag.con">Onhold</a>
+    <a class="btn btn-info" href="/train/onprocess?id=@ViewBag.con">onprocess</a>
+    <a class="btn btn-success" href="/train/completed?id=@ViewBag.con">completed</a>
+    <hr />
+    <p class="text-warning">* updated Status passed to Project Manager</p>
+</div>
+

@@ -1,0 +1,83 @@
+﻿@model TraineeResourceManagement.Models.Class1
+
+@{
+    ViewBag.Title = "details";
+}
+
+<style type="text/css">
+    .l {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        width: 300px;
+        height: auto;
+        text-align: center;
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+    }
+</style>
+
+<div class="l">
+  
+    <div>
+        <table width="100%">
+            <tr>
+                <td>
+                    Trainer ID
+                </td>
+                <td>
+                    @Model.ctid
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Executive Name
+                </td>
+                <td>
+                    @Model.cexename
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Start Date
+                </td>
+                <td>
+                    @Model.csdate.ToShortDateString()
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    End Date
+                </td>
+                <td>
+                    @Model.cedate.ToShortDateString()
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Room
+                </td>
+                <td>
+                    @Model.croom
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Room
+                </td>
+                <td>
+                    @Model.croom
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <hr />
+    <div class="text-right">
+        <a class="btn btn-success" href="/request/confirm?id=@ViewBag.pmreqiq"><span class="glyphicon glyphicon-check"></span> Approve</a>
+        <a class="btn btn-danger" href="/request/cancel?id=@ViewBag.pmreqiq"><span class="glyphicon glyphicon-remove"></span>Cancel</a>
+    </div>
+</div>
+

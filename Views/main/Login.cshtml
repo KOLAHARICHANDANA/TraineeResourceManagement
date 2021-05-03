@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "";
+}
+
+<style>
+    body {
+        background: url('/kal.jpg') no-repeat;
+        background-repeat: no-repeat;
+    }
+
+    td {
+        padding-bottom: 20px;
+        color: white;
+        font-family: Snell Roundhand, cursive;
+    }
+
+    input {
+        padding: 10px;
+        border-radius: 20px;
+        font-family: Snell Roundhand, cursive;
+        outline: none;
+    }
+
+    .l {
+        transition: 0.7s ease-in-out;
+        opacity: 0.5;
+        position: absolute;
+        color: white;
+        top: 25%;
+        left: 40%;
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        background-color: black;
+        border-radius: 15px;
+    }
+
+        .l:hover {
+            transition: 0.5s ease-in-out;
+            width: 310px;
+            height: 310px;
+            box-shadow: white 0px 0px 30px;
+            opacity: 1;
+        }
+
+    sub {
+        background-color: white;
+    }
+</style>
+
+<div class="l">
+    <h1 style="font-family:Snell Roundhand, cursive;">Login</h1>
+    @using (Html.BeginForm("Login", "main", FormMethod.Post))
+    {
+        <table style="justify-content:center;">
+            <tr>
+                <td>
+                    Username:
+                </td>
+                <td style="width:50px">
+                    @Html.TextBox("Uname")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    @Html.TextBox("pwd", null, new { Type = "password" })
+                </td>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input class="sub" type="submit" value="submit" />
+                </td>
+            </tr>
+        </table>
+        @ViewBag.msg
+    }
+</div>
+
+
+
+
+

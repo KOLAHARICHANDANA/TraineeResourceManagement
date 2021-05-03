@@ -1,0 +1,43 @@
+﻿@model TraineeResourceManagement.Models.Class1
+
+@{
+    ViewBag.Title = "edit";
+}
+
+
+@using (Html.BeginForm("edit", "Ind", FormMethod.Post))
+{
+    <br />
+
+    <span>Trainer name: </span> @Html.DropDownList("tn", Model.lm)
+    <span>Room:</span>@Html.TextBox("room")
+    <input type="hidden" value="@ViewBag.id" name="qid" />
+    <input type="submit" value="submit" />
+}
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Project Manager</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            @Model.cpmname
+        </td>
+
+
+        <td>
+            @Model.csdate.ToShortDateString()
+        </td>
+
+        <td>
+            @Model.cedate.ToShortDateString()
+        </td>
+    </tr>
+</table>
+
+
+

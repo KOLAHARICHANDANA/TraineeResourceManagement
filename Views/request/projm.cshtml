@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "projm";
+}
+
+
+
+@using (Html.BeginForm("projm", "request", FormMethod.Post))
+{
+    <br />
+    <span>Req Name:</span>@Html.TextBox("req")
+    <span>Domain:</span>@Html.TextBox("dom")
+    <span>Strat Date:</span>@Html.TextBox("sd", null, new { type = "date" })
+    <span>End Date:</span>@Html.TextBox("edn", null, new { type = "date" })
+    <input type="submit" value="submit" />
+}

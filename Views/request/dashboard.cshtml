@@ -1,0 +1,70 @@
+﻿@model List<TraineeResourceManagement.Models.Class1>
+@{
+    ViewBag.Title = "dashboard";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Request Name</th>
+            <th scope="col">Domain</th>
+            <th scope="col">Status</th>
+
+            <th scope="col">Operation</th>
+        </tr>
+    </thead>
+    @foreach (var i in Model)
+    {
+
+        <tr scope="row">
+            <td>
+                @i.creqname
+            </td>
+            <td>
+                @i.cdomain
+            </td>
+            <td>
+                @if (i.cstatus == "Cancelled")
+                {
+                    <p class="text-danger">@i.cstatus</p>
+                }
+                @if (i.cstatus == "Requested")
+                {
+                    <p class="text-warning">@i.cstatus</p>
+                }
+                @if (i.cstatus == "completed")
+                {
+                    <p class="text-success">@i.cstatus</p>
+                }
+                @if (i.cstatus == "Confirmed" || i.cstatus == "onprocess" || i.cstatus == "onhold" || i.cstatus == "Submitted")
+                {
+                    <p class="text-primary">@i.cstatus</p>
+                }
+
+            </td>
+            <td>
+                @if (i.cstatus == "Submitted" && ViewBag.job == "PM")
+                {
+                    <a class="btn btn-info" href="/request/details?id=@i.creqid" ><span class="glyphicon glyphicon-folder-open"></span> Details</a>
+
+                }
+                @if ((i.cstatus == "Requested") && ViewBag.job == "SPOC")
+                {
+                    <a class="btn btn-info" href="/Ind/edit?id=@i.creqid&dom=@i.cdomain">Submit</a>
+                }
+                @if (i.cstatus == "Cancelled" && ViewBag.job == "SPOC")
+                {
+                    <a class="btn btn-warning" href="/Ind/edit?id=@i.creqid&dom=@i.cdomain">Re-submit</a>
+                }
+                @if ((i.cstatus == "Confirmed" || i.cstatus == "onprocess" || i.cstatus == "onhold") && ViewBag.job == "TRAINER")
+                {
+                    <a class="btn btn-primary" href="/train/update?id=@i.creqid">update</a>
+
+                }
+            </td>
+        </tr>
+
+
+    }
+</table>
+
