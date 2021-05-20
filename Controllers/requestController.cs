@@ -26,7 +26,14 @@ namespace TraineeResourceManagement.Controllers
                 if (log == "PM")
                 {
 
-                    return View();
+                    var domains = m.trainers.Select(i => i.domain).Distinct();
+
+                    foreach (var i in domains)
+                    {
+                        c.dm.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString() });
+                    }
+
+                    return View(c);
                 }
 
                 else
