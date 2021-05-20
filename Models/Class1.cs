@@ -21,5 +21,6 @@ namespace TraineeResourceManagement.Models
         public string cexename { get; set; }
         public string cpmname { get; set; }
         public List<SelectListItem> lm = new List<SelectListItem>();
+        public List<SelectListItem> dm = new List<SelectListItem>();
     }
 }
