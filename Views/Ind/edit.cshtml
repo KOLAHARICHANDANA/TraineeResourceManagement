@@ -10,7 +10,7 @@
     <br />
 
     <span>Trainer name: </span> @Html.DropDownList("tn", Model.lm)
-    <span>Room:</span>@Html.TextBox("room")
+    <span>Room no:</span>@Html.DropDownList("room", Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
     <input type="hidden" value="@ViewBag.id" name="qid" />
     <input type="submit" value="submit" />
 }
